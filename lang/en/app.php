@@ -1,0 +1,78 @@
+<?php
+
+return [
+    'appName' => 'GN Bookstore',
+    'search' => 'Search',
+    'message' => 'Message',
+    'messages' => 'Messages',
+    'lang' => 'Language',
+    'car' => 'Book',
+    'cars' => 'Books',
+    'brand' => 'Category',
+    'brands' => 'Categories',
+    'location' => 'Language',
+    'locations' => 'Languages',
+    'sort' => 'Sort',
+    'perPage' => 'Per page',
+    'all' => 'All',
+    'filter' => 'Filter',
+    'clear' => 'Clear',
+    'new' => 'New',
+    'pending' => 'Pending',
+    'newToOld' => 'New to old',
+    'oldToNew' => 'Old to new',
+    'lowToHigh' => 'Low to high',
+    'highToLow' => 'High to low',
+    'similar' => 'Similar',
+
+    'login' => 'Login',
+    'register' => 'Register',
+    'logout' => 'Logout',
+    'name' => 'Name',
+    'username' => 'Username',
+    'password' => 'Password',
+    'passwordConfirmation' => 'Password Confirmation',
+
+    'email' => 'E-mail',
+    'phone' => 'Phone',
+    'contact' => 'Contact',
+
+    'create' => 'Add',
+    'store' => 'Save',
+    'store-response' => '<b>:name</b> is added!',
+    'edit' => 'Edit',
+    'update' => 'Update',
+    'update-response' => '<b>:name</b> is updated!',
+    'delete' => 'Delete',
+    'cancel' => 'Cancel',
+    'delete-question' => 'Are you sure you want to delete <b>:name</b>?',
+    'delete-response' => '<b>:name</b> is deleted!',
+
+    'news' => 'News',
+    'populars' => 'Populars',
+    'popular' => 'Popular',
+    'recommends' => 'Recommends',
+    'recommend' => 'Recommend',
+    'total' => 'Total',
+
+    'users' => 'Users',
+    'user' => 'User',
+
+    'about-us' => 'About us',
+
+    'password-confirmation' => 'Password confirmation',
+
+    'error' => 'Whoops! Something went wrong.',
+
+    'not-found' => '<b>:name</b> not found!',
+    'myPosts' => 'My Posts',
+    'others' => 'Others',
+
+    'probeg' => 'Probeg',
+    'vin_code' => 'Barcode',
+    'description' => 'Description',
+    'price' => 'Price',
+    'credit' => 'Credit',
+    'change' => 'Change',
+    'image' => 'Image',
+];
