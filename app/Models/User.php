@@ -5,19 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
     use Notifiable, HasFactory;
 
     protected $fillable = [
+        'admin',
         'name',
-        'username',
+        'phone',
         'password',
     ];
 
     protected $hidden = [
         'password',
+        'admin',
         'remember_token',
     ];
 
@@ -27,7 +30,8 @@ class User extends Authenticatable
 
     public $timestamps = false;
 
-    public static function inRandomOrder()
+    public function getImage()
     {
+        return $this->image ? Storage::url('img/' . $this->image) : asset('img/1.jpg');
     }
 }

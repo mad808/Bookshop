@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('title') @lang('app.car') - @lang('app.create') @endsection
+@section('title') @lang('app.kitap') - @lang('app.create') @endsection
 @section('content')
     <div class="container-xxl py-3">
         <div class="d-block h3 text-dark fw-bold text-center border-bottom py-2 mb-3">
-            @lang('app.car') - @lang('app.create')
+            @lang('app.kitap') - @lang('app.create')
         </div>
         <div class="row justify-content-center">
-            <form action="{{ route('kitaps.store') }}" method="post" enctype="multipart/form-data" class="col-md-6 col-lg-4">
+            <form action="{{ route('books.store') }}" method="post" enctype="multipart/form-data" class="col-md-6 col-lg-4">
                 @csrf
 
                 <div class="mb-3">
@@ -51,6 +51,24 @@
                     @enderror
                 </div>
 
+
+                <div class="mb-3">
+                    <label for="year_id" class="form-label fw-bold">
+                        @lang('app.year') <span class="text-danger">*</span>
+                    </label>
+                    <select class="form-select @error('year_id') is-invalid @enderror" id="year_id" name="year_id" required>
+                        @foreach($years as $year)
+                            <option value="{{ $year->id }}">
+                                {{ $year->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('year_id')
+                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+
+
                 <div class="mb-3">
                     <label for="bar_code" class="form-label fw-bold">
                         @lang('app.bar_code') <span class="text-danger">*</span>
@@ -71,6 +89,15 @@
                     @enderror
                 </div>
 
+                <div class="mb-3">
+                    <label for="bookspage" class="form-label fw-bold">
+                        @lang('app.pagecount') <span class="text-danger">*</span>
+                    </label>
+                    <input type="number" class="form-control @error('bookspage') is-invalid @enderror" name="bookspage" id="bookspage" value="0" min="0" step="0.1" required>
+                    @error('bookspage')
+                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="mb-3">
                     <label for="price" class="form-label fw-bold">
@@ -81,6 +108,17 @@
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
+
+
+                {{--<div class="mb-3">--}}
+                    {{--<label for="pagecount" class="form-label fw-bold">--}}
+                        {{--@lang('app.pagecount') <span class="text-danger">*</span>--}}
+                    {{--</label>--}}
+                    {{--<input type="number" class="form-control @error('pagecount') is-invalid @enderror" name="price" id="pagecount" value="0" min="0" step="0.1" required>--}}
+                    {{--@error('pagecount')--}}
+                    {{--<div class="alert alert-danger mt-1">{{ $message }}</div>--}}
+                    {{--@enderror--}}
+                {{--</div>--}}
 
 
 

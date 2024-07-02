@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-primary bg-opacity-25" aria-label="Navbar">
+<nav class="navbar navbar-expand-lg bg-primary bg-opacity-75" aria-label="Navbar">
     <div class="container-xl">
         <a class="navbar-brand fw-bold {{ request()->routeIs('home') ? 'link-primary':'' }}" href="{{ route('home') }}">
             <img class="img-fluid" src="{{asset('img/gbookstore.svg')}}" style="height: 3rem">
@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('kitaps.index') ? 'link-primary':'' }}" href="{{ route('kitaps.index') }}">
+                    <a class="nav-link {{ request()->routeIs('books.index') ? 'link-primary':'' }}" href="{{ route('books.index') }}">
                         <i class="bi-funnel"></i> @lang('app.filter')
                     </a>
                 </li>
@@ -18,10 +18,10 @@
                     <ul class="dropdown-menu">
                         @foreach($brands as $brand)
                             <li>
-                                <a class="dropdown-item" href="{{ route('kitaps.index', ['brands' => [$brand->id]]) }}">
+                                <a class="dropdown-item" href="{{ route('books.index', ['brands' => [$brand->id]]) }}">
                                     {{ $brand->name }}
                                     <span class="badge bg-primary-subtle border border-primary-subtle text-primary-emphasis rounded-pill">
-                                        {{ $brand->kitaps_count }}
+                                        {{ $brand->books_count }}
                                     </span>
                                 </a>
                             </li>
@@ -46,18 +46,18 @@
                 </li>
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('kitaps.userCars') }}">@lang('app.myPosts')</a>
+                        <a class="nav-link" href="{{ route('books.userCars') }}">@lang('app.myPosts')</a>
                     </li>
                 @endauth
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('kitaps.create') }}">@lang('app.create')</a>
+                        <a class="nav-link" href="{{ route('books.create') }}">@lang('app.create')</a>
                     </li>
                 @endauth
             </ul>
 
             <div class="w-25">
-                <form action="{{route('kitaps.index')}}" method="get">
+                <form action="{{route('books.index')}}" method="get">
                     <div class="input-group">
                         <button type="submit" class="input-group-text bg-secondary bg-opacity-50 border-0" id="basic-addon2"><i class="bi-search text-light text-opacity-25" style="transform: rotate(90deg)"></i></button>
                         <input type="text" name="q" class="form-control pe-5 text-light text-opacity-50 bg-secondary bg-opacity-50 border-0 shadow-none" aria-describedby="basic-addon2" placeholder="Gozle....">

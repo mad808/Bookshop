@@ -13,9 +13,9 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="username" class="form-label">@lang('app.username') <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" required autofocus>
-                        @error('username')
+                        <label for="phone" class="form-label">@lang('app.phone') <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" required autofocus>
+                        @error('phone')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>

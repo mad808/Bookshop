@@ -7,9 +7,9 @@
         </div>
         <div class="row g-3">
             <div class="col-sm">
-                @if($kitaps->count() > 0)
+                @if($books->count() > 0)
                     <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
-                        @foreach($kitaps as $kitap)
+                        @foreach($books as $book)
                             <div class="col">@include('app.car')</div>
                         @endforeach
                     </div>

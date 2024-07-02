@@ -24,14 +24,14 @@
             @endforeach
         </select>
     </div>
-    @auth
-        <div class="mb-3">
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="active" name="active" value="0" {{ $f_active == 0 ? 'checked' : '' }}>
-                <label class="form-check-label" for="active">@lang('app.pending')</label>
-            </div>
-        </div>
-    @endauth
+    {{--@auth--}}
+        {{--<div class="mb-3">--}}
+            {{--<div class="form-check form-switch">--}}
+                {{--<input class="form-check-input" type="checkbox" role="switch" id="active" name="active" value="0" {{ $f_active == 0 ? 'checked' : '' }}>--}}
+                {{--<label class="form-check-label" for="active">@lang('app.pending')</label>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--@endauth--}}
     <div class="row g-3">
         <div class="col">
             <a href="{{ url()->current() }}" class="btn btn-secondary btn-sm w-100">

@@ -14,9 +14,13 @@ class Booklang extends Model
 
     public $timestamps = false;
 
+    public static function findOrFail($booklang_id)
+    {
+    }
+
 
     public function kitaps(): HasMany
     {
-        return $this->hasMany(Kitap::class);
+        return $this->hasMany(Book::class);
     }
 }

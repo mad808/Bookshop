@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -19,22 +20,23 @@ class LoginController extends Controller
 
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        try {
+            $request->authenticate();
+        } catch (ValidationException $e) {
+        }
 
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME)
-            ->with([
-                'success' => 'Successfully logged in!',
+        if (Auth::User()->admin == 1) {
+            return redirect()->intended(RouteServiceProvider::ADMIN)->with(['success' => trans('app.welcome') . ' ' . auth()->user()->name]);
+        } else {
+            return redirect()->intended(RouteServiceProvider::HOME)->with([
+                'success' => trans('app.welcome') . ' ' . auth()->user()->name
             ]);
+        }
     }
 
 
-
-
-
-
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request): \Illuminate\Http\RedirectResponse
     {
         Auth::guard('web')->logout();
 
@@ -42,9 +44,8 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/')
-            ->with([
-                'success' => 'Successfully logged out!',
-            ]);
+        return redirect()->intended(RouteServiceProvider::HOME)->with([
+            'success' => trans('app.logouted')
+        ]);
     }
 }

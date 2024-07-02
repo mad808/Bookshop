@@ -16,9 +16,13 @@ class Brand extends Model
     {
     }
 
+    public static function findOrFail($brand_id)
+    {
+    }
+
 
     public function kitaps(): HasMany
     {
-        return $this->hasMany(Kitap::class);
+        return $this->hasMany(Book::class);
     }
 }
